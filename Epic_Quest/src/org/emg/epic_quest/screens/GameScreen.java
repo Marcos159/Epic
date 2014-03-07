@@ -11,6 +11,7 @@ import org.emg.epic_quest.util.Constants;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 
 public class GameScreen implements Screen {
@@ -19,6 +20,7 @@ public class GameScreen implements Screen {
 	LevelManager levelManager;
 	SpriteManager spriteManager;
 	float tiempoJuego;
+	Music musicaTheme;
 	
 	public GameScreen(Epic_Quest game) {
 		this.game = game;
@@ -30,10 +32,20 @@ public class GameScreen implements Screen {
 		spriteManager = new SpriteManager();
 		levelManager = new LevelManager(spriteManager);
 		levelManager.loadCurrentLevel();
+		
+		musicaTheme = Gdx.audio.newMusic(Gdx.files.internal("sounds/zelda.mp3"));
+		
+		// Inicia la música de fondo del juego en modo bucle
+		musicaTheme.setLooping(true);
+				
+		/*musicaTheme= ResourceManager.getMusic("theme");
+		musicaTheme.setLooping(true);*/
 	}
 	
 	@Override
 	public void show() {
+		
+		musicaTheme.play();
 	}
 	
 	@Override
@@ -49,7 +61,7 @@ public class GameScreen implements Screen {
 			dispose();
 			tiempoJuego = 5;
 			if(levelManager.currentLevel == 4){
-				
+				musicaTheme.stop();
 				game.setScreen(new GameOverScreen(game));
 				
 			}else{

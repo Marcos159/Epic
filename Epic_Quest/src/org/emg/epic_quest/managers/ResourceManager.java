@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -19,9 +21,10 @@ public class ResourceManager {
 		private static Map<String, Sound> sounds =
 			new HashMap<String, Sound>();
 		
-		public static void loadAllResources() {
-			//loadResource("background", new Texture("backGrounds/nivel1.png"));
-			
+		private static Map<String, Music> musics =
+				new HashMap<String, Music>();
+		
+		public static void loadAllResources() {		
 			/*
 			 * Cargamos las animaciones
 			 */
@@ -81,7 +84,9 @@ public class ResourceManager {
 			animations.put("bala",
 					new Animation(0.25f, 
 					getAtlas("characters").findRegion("pelota")));
+			//Cargamos sonidos
 			
+			ResourceManager.loadResource("theme", Gdx.audio.newMusic(Gdx.files.internal("sounds/zelda.mp3")));
 			
 			
 		
@@ -125,6 +130,24 @@ public class ResourceManager {
 		public static Texture getTexture(String name) {
 			
 			return textures.get(name);
+		}
+		/**
+		 * Carga un recurso de sonido en memoria
+		 * @param name
+		 * @param sound
+		 */
+		public static void loadResource(String name, Music music) {
+			
+			musics.put(name, music);
+		}
+		/**
+		 * Obtiene un recurso de sonido de memoria
+		 * @param name
+		 * @return
+		 */
+		public static Music getMusic(String name) {
+			
+			return  musics.get(name);
 		}
 	
 }

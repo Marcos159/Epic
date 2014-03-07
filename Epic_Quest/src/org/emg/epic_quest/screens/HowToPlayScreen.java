@@ -1,13 +1,11 @@
 package org.emg.epic_quest.screens;
 
-
-
 import org.emg.epic_quest.Epic_Quest;
 import org.emg.epic_quest.util.Constants;
 
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -16,21 +14,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
-public class MainMenuScreen implements Screen {
-
+public class HowToPlayScreen implements Screen {
 	Epic_Quest game;
 	Stage stage;
 	
-	public MainMenuScreen(Epic_Quest game) {
+	public HowToPlayScreen(Epic_Quest game) {
 		this.game = game;
 	}
 	
-	@Override
-	public void show() {
-		
-		loadScreen();
-	}
-	private void loadScreen() {
+private void loadScreen() {
 		
 		// Grafo de escena que contendrá todo el menú
 		stage = new Stage();
@@ -44,45 +36,20 @@ public class MainMenuScreen implements Screen {
 	    stage.addActor(table);
 		
 	    // Etiqueta de texto
-		Label label = new Label("Bienvenido a EPIC QUEST \n(Baja un poco el volumen del ordenador)", game.getSkin());
+		Label label = new Label("INSTRUCCIONES", game.getSkin());
 		table.addActor(label);
 		
-		// Botón
-		TextButton buttonHistory = new TextButton("Empezar Partida", game.getSkin());
-		buttonHistory.setPosition(label.getOriginX(), label.getOriginY() - 170);
-		buttonHistory.setWidth(200);
-		buttonHistory.setHeight(40);
-		buttonHistory.addListener(new InputListener() {
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				return true;
-			}
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				
-				dispose();
-				game.setScreen(new GameScreen(game));
-			}
-		});
-		table.addActor(buttonHistory);
+		Label label2 = new Label("El juego trata de sobrevivir 4 rondas de enemigos. \n " +
+				"Una vez terminadas las 4 rondas podemos ver nuestra puntuacion \n y meterla a una base de datos.\n" +
+				"La mecanica del juego es muy simple: Se maneja con las flechas \n y se dispara con la barra espaciadora.\n" +
+				" Los enemigos suelen variar en funcion de la velocidad e intentan\n entrar a la aldea pero hay uno especial \n" +
+				" que intentará atraparte", game.getSkin());
 		
-		// Botón
-		TextButton buttonConfig = new TextButton("Instrucciones", game.getSkin());
-		buttonConfig.setPosition(label.getOriginX(), label.getOriginY() - 220);
-		buttonConfig.setWidth(200);
-		buttonConfig.setHeight(40);
-		buttonConfig.addListener(new InputListener() {
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				return true;
-			}
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				
-				dispose();
-				game.setScreen(new HowToPlayScreen(game));
-			}
-		});
-		table.addActor(buttonConfig);
+		table.addActor(label2);
 		
+		label2.setPosition(label.getOriginX()-190, label.getOriginY() - 170);
 		// Botón
-		TextButton buttonQuit = new TextButton("Salir", game.getSkin());
+		TextButton buttonQuit = new TextButton("Volver", game.getSkin());
 		buttonQuit.setPosition(label.getOriginX(), label.getOriginY() - 270);
 		buttonQuit.setWidth(200);
 		buttonQuit.setHeight(40);
@@ -92,28 +59,13 @@ public class MainMenuScreen implements Screen {
 			}
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				
-				game.dispose();
-				System.exit(0);
+				game.setScreen(new MainMenuScreen(game));
 			}
 		});
 		table.addActor(buttonQuit);
 		
 		Gdx.input.setInputProcessor(stage);
 	}
-	
-	@Override
-	public void render(float dt) {
-		
-		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		// Pinta el menú
-				stage.act(dt);
-				stage.draw();
-		
-	}
-	
-	
-	
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
@@ -133,6 +85,15 @@ public class MainMenuScreen implements Screen {
 	}
 
 	@Override
+	public void render(float dt) {
+		Gdx.gl.glClearColor(0, 0.2f, 0, 1);
+		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		stage.act(dt);
+		stage.draw();
+		
+	}
+
+	@Override
 	public void resize(int arg0, int arg1) {
 		// TODO Auto-generated method stub
 		
@@ -143,4 +104,11 @@ public class MainMenuScreen implements Screen {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void show() {
+		loadScreen();
+		
+	}
+
 }

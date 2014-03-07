@@ -6,9 +6,11 @@ import org.emg.epic_quest.screens.MainMenuScreen;
 import org.emg.epic_quest.util.Constants;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class Epic_Quest  extends Game{
 
@@ -17,6 +19,7 @@ public class Epic_Quest  extends Game{
 	OrthographicCamera camera;
 	public int enemigosMatados;
 	
+	private Skin skin;
 	
 	@Override
 	public void create() {
@@ -41,5 +44,12 @@ public class Epic_Quest  extends Game{
 		batch.dispose();
 		font.dispose();
 	}
+	
+	public Skin getSkin() {
+        if(skin == null ) {
+            skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
+        }
+        return skin;
+    }	
 
 }
