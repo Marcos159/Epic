@@ -13,7 +13,7 @@ import com.badlogic.gdx.files.FileHandle;
 public class LevelManager {
 
 	SpriteManager spriteManager;
-	public int currentLevel;
+	public static int currentLevel;
 	
 	public LevelManager(SpriteManager spriteManager) {
 		this.spriteManager = spriteManager;

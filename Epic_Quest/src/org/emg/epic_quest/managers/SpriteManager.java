@@ -27,7 +27,10 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 public class SpriteManager {
 	
-	private Texture background;
+	private Texture background1;
+	private Texture background2;
+	private Texture background3;
+	private Texture background4;
 	Player player;
 	Array<Enemy> enemies;
 	Iterator<Enemy> iterEnemy;
@@ -41,7 +44,15 @@ public class SpriteManager {
 				.findRegion("pj_up1"), 100, 0);
 			enemies = new Array<Enemy>();
 			balas = new Array<Bala>();
-			background = new Texture("backGrounds/nivel1.png");
+			
+			
+			background1 = new Texture("backGrounds/mapa1.png");
+		
+			background2 = new Texture("backGrounds/mapa2.png");
+			
+			background3 = new Texture("backGrounds/mapa3.png");
+			
+			background4 = new Texture("backGrounds/mapa4.png");
 			
 	}
 	
@@ -50,7 +61,15 @@ public class SpriteManager {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		batch.begin();
-		batch.draw(background, 0, 0);
+		if(LevelManager.currentLevel ==1)
+		batch.draw(background1, 0, 0);
+		if(LevelManager.currentLevel ==2)
+			batch.draw(background2, 0, 0);
+		if(LevelManager.currentLevel ==3)
+			batch.draw(background3, 0, 0);
+		if(LevelManager.currentLevel ==4)
+			batch.draw(background4, 0, 0);
+		
 		player.render(batch);
 		for (Enemy enemy : enemies)
 			enemy.render(batch);

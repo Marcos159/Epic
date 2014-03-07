@@ -24,7 +24,7 @@ public class GameScreen implements Screen {
 	
 	public GameScreen(Epic_Quest game) {
 		this.game = game;
-		tiempoJuego = 10;
+		tiempoJuego = 43;
 		ResourceManager.loadAllResources();
 		
 		Texture.setEnforcePotImages(false);
@@ -59,7 +59,7 @@ public class GameScreen implements Screen {
 			
 		if (tiempoJuego < 0) {
 			dispose();
-			tiempoJuego = 5;
+			tiempoJuego = 43;
 			if(levelManager.currentLevel == 4){
 				musicaTheme.stop();
 				game.setScreen(new GameOverScreen(game));
