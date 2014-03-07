@@ -1,0 +1,7 @@
+p,f,f,f,p,f,-,f,p,f,n,f,f,-,-,f,f,-,f
+n,f,-,n,p,n,f,-,-,f,-,f,f,n,f,f,f,p,f
+f,f,n,f,p,f,f,-,p,f,n,f,f,-,f,n,-,f,-
+f,n,-,f,n,p,n,-,f,n,f,-,p,n,-,f,f,f,f
+f,f,-,f,f,n,-,f,-,-,-,f,-,p,f,p,n,-,f
+n,f,-,f,n,-,n,f,n,f,p,n,f,f,p,f,f,n,f
+f,f,n,f,f,f,n,f,-,-,f,f,f,-,-,f,-,f,n

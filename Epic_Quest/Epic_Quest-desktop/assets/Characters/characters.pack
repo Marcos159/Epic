@@ -1,0 +1,180 @@
+
+Characters.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+pirata_down1
+  rotate: false
+  xy: 1, 73
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+pirata_down2
+  rotate: false
+  xy: 1, 38
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+pirata_down3
+  rotate: false
+  xy: 36, 73
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+pj_up2
+  rotate: false
+  xy: 1, 1
+  size: 27, 35
+  orig: 27, 35
+  offset: 0, 0
+  index: -1
+pj_up3
+  rotate: false
+  xy: 36, 36
+  size: 27, 35
+  orig: 27, 35
+  offset: 0, 0
+  index: -1
+fantasma_down1
+  rotate: false
+  xy: 71, 74
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+fantasma_down2
+  rotate: false
+  xy: 99, 74
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+fantasma_down3
+  rotate: false
+  xy: 127, 74
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_down1
+  rotate: false
+  xy: 155, 74
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_down2
+  rotate: false
+  xy: 183, 74
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_down3
+  rotate: false
+  xy: 211, 74
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_left1
+  rotate: false
+  xy: 30, 2
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+npc_down1
+  rotate: false
+  xy: 58, 2
+  size: 25, 32
+  orig: 25, 32
+  offset: 0, 0
+  index: -1
+npc_down2
+  rotate: false
+  xy: 65, 39
+  size: 25, 32
+  orig: 25, 32
+  offset: 0, 0
+  index: -1
+pj_left2
+  rotate: false
+  xy: 92, 40
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_right1
+  rotate: false
+  xy: 120, 40
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_right2
+  rotate: false
+  xy: 148, 40
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_right3
+  rotate: false
+  xy: 176, 40
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+pj_up1
+  rotate: false
+  xy: 204, 40
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+npc_down3
+  rotate: false
+  xy: 85, 5
+  size: 25, 32
+  orig: 25, 32
+  offset: 0, 0
+  index: -1
+pj_left3
+  rotate: false
+  xy: 112, 7
+  size: 26, 31
+  orig: 26, 31
+  offset: 0, 0
+  index: -1
+botas
+  rotate: false
+  xy: 140, 12
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+comida
+  rotate: false
+  xy: 168, 12
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+pelota
+  rotate: false
+  xy: 196, 12
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+tiempo
+  rotate: false
+  xy: 224, 12
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
