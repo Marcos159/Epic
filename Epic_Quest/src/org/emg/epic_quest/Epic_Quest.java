@@ -17,7 +17,7 @@ public class Epic_Quest  extends Game{
 	public SpriteBatch batch;
 	public BitmapFont font;
 	OrthographicCamera camera;
-	public int enemigosMatados;
+	public static int puntosTotales=0;
 	
 	private Skin skin;
 	

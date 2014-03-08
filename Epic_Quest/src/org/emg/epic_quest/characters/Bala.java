@@ -1,5 +1,7 @@
 package org.emg.epic_quest.characters;
 
+import org.emg.epic_quest.util.Constants;
+
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 
@@ -19,9 +21,6 @@ public class Bala extends Character {
 		rect.x = position.x;
 		rect.y = position.y;
 		
-		if(position.y < 0){
-			//TODO ELIMINAR ENEMIGO
-			
-		}
+		
 	}
 }

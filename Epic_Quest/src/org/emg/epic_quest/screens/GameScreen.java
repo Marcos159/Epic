@@ -29,7 +29,7 @@ public class GameScreen implements Screen {
 		
 		Texture.setEnforcePotImages(false);
 		
-		spriteManager = new SpriteManager();
+		spriteManager = new SpriteManager(game);
 		levelManager = new LevelManager(spriteManager);
 		levelManager.loadCurrentLevel();
 		
@@ -55,13 +55,14 @@ public class GameScreen implements Screen {
 		
 		// Actualiza el tiempo de juego
 		tiempoJuego -= Gdx.graphics.getDeltaTime();
-		System.out.println(tiempoJuego);
+		
 			
 		if (tiempoJuego < 0) {
 			dispose();
 			tiempoJuego = 43;
 			if(levelManager.currentLevel == 4){
 				musicaTheme.stop();
+				spriteManager.enemies.clear();
 				game.setScreen(new GameOverScreen(game));
 				
 			}else{

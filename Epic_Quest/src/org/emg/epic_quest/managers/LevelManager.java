@@ -1,5 +1,6 @@
 package org.emg.epic_quest.managers;
 
+import org.emg.epic_quest.Epic_Quest;
 import org.emg.epic_quest.characters.Enemy;
 import org.emg.epic_quest.util.Constants;
 
@@ -24,11 +25,12 @@ public class LevelManager {
 	public void loadCurrentLevel() {
 		
 		FileHandle file = Gdx.files.internal("levels/level" + currentLevel + ".txt");
-
+		Epic_Quest.puntosTotales = Epic_Quest.puntosTotales +100;
+		
 		String levelInfo = file.readString();
 		
 		
-		int x = 0, y = Constants.SCREEN_HEIGHT+1216 - Constants.BRICK_HEIGHT;
+		int x = 0, y = Constants.SCREEN_HEIGHT+2736 - Constants.BRICK_HEIGHT;
 		
 		String[] rows = levelInfo.split("\n");
 		

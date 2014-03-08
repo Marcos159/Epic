@@ -32,19 +32,22 @@ public class SpriteManager {
 	private Texture background3;
 	private Texture background4;
 	Player player;
-	Array<Enemy> enemies;
+	public Array<Enemy> enemies;
 	Iterator<Enemy> iterEnemy;
 	Array<Bala> balas;
 	Iterator<Bala> iterBala;
 	
+	Epic_Quest game;
+	
 	long momentoUltimaBala;
 	
-	public SpriteManager() {
+	public SpriteManager(Epic_Quest game) {
 		player = new Player(ResourceManager.getAtlas("characters")
 				.findRegion("pj_up1"), 100, 0);
 			enemies = new Array<Enemy>();
 			balas = new Array<Bala>();
 			
+			this.game=game;
 			
 			background1 = new Texture("backGrounds/mapa1.png");
 		
@@ -78,6 +81,7 @@ public class SpriteManager {
 		for (Bala bala : balas)
 			bala.render(batch);
 		
+		game.font.draw(game.batch, "PUNTOS: "+Epic_Quest.puntosTotales , 15, 20);
 		
 		batch.end();
 				
@@ -87,7 +91,6 @@ public class SpriteManager {
 	
 	public void update(float dt) {
 		handleInput(dt);
-		
 		checkCollisions();
 		
 		player.update(dt);
@@ -95,6 +98,7 @@ public class SpriteManager {
 			enemy.update(dt);
 		for (Bala bala : balas)
 			bala.update(dt);
+		
 	}
 	
 	private void handleInput(float dt) {
@@ -114,7 +118,7 @@ public class SpriteManager {
 			player.state = Player.State.RIGHT;
 			player.move(new Vector2(dt,0));
 		}
-		if (TimeUtils.nanoTime() - momentoUltimaBala > 400000000){
+		if (TimeUtils.nanoTime() - momentoUltimaBala > 250000000){
 			if(Gdx.input.isKeyPressed(Keys.SPACE)){
 				Bala bala = new Bala(ResourceManager.getAnimation("bala"), player.position.x , player.position.y , 130);
 				balas.add(bala);
@@ -133,6 +137,12 @@ public class SpriteManager {
 			if (Intersector.overlaps(enemigo.rect, player.rect)) {
 				iterEnemy.remove();				
 			}
+			
+			if(enemigo.position.y < 0){
+				iterEnemy.remove();
+				Epic_Quest.puntosTotales = Epic_Quest.puntosTotales - 1;
+			}
+			
 			iterBala = balas.iterator();
 			while(iterBala.hasNext()){
 				Bala bala = iterBala.next();
@@ -141,6 +151,16 @@ public class SpriteManager {
 					iterEnemy.remove();
 					iterBala.remove();
 				}
+			}
+		}
+		
+		iterBala = balas.iterator();
+		while(iterBala.hasNext()){
+			Bala bala = iterBala.next();
+			
+			if(bala.position.y > Constants.SCREEN_HEIGHT){
+				iterBala.remove();
+				System.out.println("BALA");
 			}
 		}
 		

@@ -7,4 +7,6 @@ public class Constants {
 	
 	public static final int BRICK_WIDTH = 36;
 	public static final int BRICK_HEIGHT = 36;
+	
+	public static final String APP = "epicQuest";
 }

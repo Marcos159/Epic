@@ -21,7 +21,7 @@ public abstract class Character {
 		
 		this.animation = animation;
 		position = new Vector2(x, y);
-		speed = 50f;
+		speed = 100f;
 		rect = new Rectangle(x, y,
 				animation.getKeyFrame(0).getRegionWidth(),
 				animation.getKeyFrame(0).getRegionHeight());
@@ -31,7 +31,7 @@ public abstract class Character {
 		
 		currentFrame = texture;
 		position = new Vector2(x, y);
-		speed = 50f;
+		speed = 100f;
 		rect = new Rectangle(x, y,
 				currentFrame.getRegionWidth(),
 				currentFrame.getRegionHeight());
