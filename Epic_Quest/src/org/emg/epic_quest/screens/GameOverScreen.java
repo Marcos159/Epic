@@ -51,18 +51,16 @@ private void loadScreen() {
 		    table.setHeight(500);
 		    stage.addActor(table);
 			
-			final Label label = new Label("Mejores puntuaciones EPIC QUEST", game.getSkin());
+			final Label label = new Label(" EPIC QUEST", game.getSkin());
 			table.addActor(label);
 			
-			// Carga la lista de puntuaciones (top 10)
-			loadScores(table, stage, label.getOriginX(), -50);
 			
 			Label labelScore = new Label("Tu puntuacion: " + Epic_Quest.puntosTotales, game.getSkin());
 			labelScore.setPosition(label.getOriginX(), label.getOriginY() - 300);
 			table.addActor(labelScore);
 			
 			// El usuario ya ha rellenado su nombre
-			if (done) {
+			
 				TextButton buttonQuit = new TextButton("Volver", game.getSkin());
 				buttonQuit.setPosition(label.getOriginX(), label.getOriginY() - 350);
 				buttonQuit.setWidth(200);
@@ -77,51 +75,12 @@ private void loadScreen() {
 					}
 				});
 				table.addActor(buttonQuit);
-			}
-			else {
-			// El usuario aún no he escrito su nombre
-				final TextField textName = new TextField("Introduce tu nombre", game.getSkin());
-				textName.setPosition(label.getOriginX(), label.getOriginY() - 350);
-				textName.setWidth(200);
-				textName.setHeight(40);
-				table.addActor(textName);
-				
-				TextButton buttonQuit = new TextButton("Ok", game.getSkin());
-				buttonQuit.setPosition(label.getOriginX(), label.getOriginY() - 400);
-				buttonQuit.setWidth(200);
-				buttonQuit.setHeight(40);
-				buttonQuit.addListener(new InputListener() {
-					public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-						return true;	
-					}
-					public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-						
-						ConfigurationManager.addScores(textName.getText(),  Epic_Quest.puntosTotales);
-						stage.clear();
-						done = true;
-						loadScreen();
-					}
-				});
-				table.addActor(buttonQuit);
-			}
-			
+					
 			
 			Gdx.input.setInputProcessor(stage);
 }
 
-private void loadScores(Table table, Stage stage, float x, float y) {
-	
-	// Lee las puntuaciones
-	List<Score> scores = ConfigurationManager.getTopScores();
-	
-	Label labelList = null;
-	for (Score score : scores) {
-		labelList = new Label(score.name + " - " + score.score, game.getSkin());
-		labelList.setPosition(x, y);
-		table.addActor(labelList);
-		y -= 20;
-	}
-}
+
 	
 	@Override
 	public void render(float dt) {

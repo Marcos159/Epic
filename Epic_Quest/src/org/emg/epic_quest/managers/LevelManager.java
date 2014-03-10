@@ -25,7 +25,7 @@ public class LevelManager {
 	public void loadCurrentLevel() {
 		
 		FileHandle file = Gdx.files.internal("levels/level" + currentLevel + ".txt");
-		Epic_Quest.puntosTotales = Epic_Quest.puntosTotales +100;
+		Epic_Quest.puntosTotales = Epic_Quest.puntosTotales +200;
 		
 		String levelInfo = file.readString();
 		

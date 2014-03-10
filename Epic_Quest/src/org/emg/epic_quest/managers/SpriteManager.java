@@ -9,8 +9,8 @@ import org.emg.epic_quest.Epic_Quest;
 import org.emg.epic_quest.characters.Bala;
 import org.emg.epic_quest.characters.Enemy;
 import org.emg.epic_quest.characters.Player;
+import org.emg.epic_quest.screens.GameOverScreen;
 import org.emg.epic_quest.util.Constants;
-
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -38,7 +38,7 @@ public class SpriteManager {
 	Iterator<Bala> iterBala;
 	
 	Epic_Quest game;
-	
+	public static int vidasJugador=2;
 	long momentoUltimaBala;
 	
 	public SpriteManager(Epic_Quest game) {
@@ -82,7 +82,7 @@ public class SpriteManager {
 			bala.render(batch);
 		
 		game.font.draw(game.batch, "PUNTOS: "+Epic_Quest.puntosTotales , 15, 20);
-		
+		game.font.draw(game.batch, "VIDAS: "+vidasJugador , 15, 50);
 		batch.end();
 				
 	}
@@ -123,6 +123,7 @@ public class SpriteManager {
 				Bala bala = new Bala(ResourceManager.getAnimation("bala"), player.position.x , player.position.y , 130);
 				balas.add(bala);
 				momentoUltimaBala = TimeUtils.nanoTime();
+				ResourceManager.getSound("bala").play();
 			}
 		}
 		
@@ -135,9 +136,10 @@ public class SpriteManager {
 			Enemy enemigo = iterEnemy.next();
 			
 			if (Intersector.overlaps(enemigo.rect, player.rect)) {
-				iterEnemy.remove();				
+				iterEnemy.remove();	
+				vidasJugador--;
+				
 			}
-			
 			if(enemigo.position.y < 0){
 				iterEnemy.remove();
 				Epic_Quest.puntosTotales = Epic_Quest.puntosTotales - 1;

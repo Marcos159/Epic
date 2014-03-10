@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -87,6 +86,7 @@ public class ResourceManager {
 			//Cargamos sonidos
 			
 			ResourceManager.loadResource("theme", Gdx.audio.newMusic(Gdx.files.internal("sounds/zelda.mp3")));
+			ResourceManager.loadResource("bala", Gdx.audio.newSound(Gdx.files.internal("sounds/bala.wav")));
 			
 			
 		
@@ -148,6 +148,25 @@ public class ResourceManager {
 		public static Music getMusic(String name) {
 			
 			return  musics.get(name);
+		}
+		
+		/**
+		 * Carga un recurso de sonido en memoria
+		 * @param name
+		 * @param sound
+		 */
+		public static void loadResource(String name, Sound sound) {
+			
+			sounds.put(name, sound);
+		}
+		/**
+		 * Obtiene un recurso de sonido de memoria
+		 * @param name
+		 * @return
+		 */
+		public static Sound getSound(String name) {
+			
+			return sounds.get(name);
 		}
 	
 }

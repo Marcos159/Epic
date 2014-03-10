@@ -56,14 +56,14 @@ public class GameScreen implements Screen {
 		// Actualiza el tiempo de juego
 		tiempoJuego -= Gdx.graphics.getDeltaTime();
 		
-			
+		if(SpriteManager.vidasJugador <= 0){
+			terminarPartida();
+		}
 		if (tiempoJuego < 0) {
 			dispose();
 			tiempoJuego = 43;
 			if(levelManager.currentLevel == 4){
-				musicaTheme.stop();
-				spriteManager.enemies.clear();
-				game.setScreen(new GameOverScreen(game));
+				terminarPartida();
 				
 			}else{
 				levelManager.passLevel();
@@ -72,6 +72,12 @@ public class GameScreen implements Screen {
 		}
 	}
 	
+	public void terminarPartida(){
+		musicaTheme.stop();
+		spriteManager.enemies.clear();
+		SpriteManager.vidasJugador=2;
+		game.setScreen(new GameOverScreen(game));
+	}
 	
 	@Override
 	public void dispose() {
